@@ -7,10 +7,16 @@ import SavingsIcon from '@mui/icons-material/Savings';
 
 const MonthlySummary = () => {
   return (
-    <Grid container>
+    <Grid container spacing={{xs: 1, sm: 2}} mb={2}>
       {/* 収入 */}
-      <Grid size={{xs:4}}>
-        <Card sx={{bgcolor: "blue", color: "white", borderRadius: "10px"}}>
+      <Grid size={{xs:4}} display={"flex"} flexDirection={"column"}>
+        <Card 
+          sx={{
+            bgcolor: (theme) => theme.palette.incomeColor.main, 
+            color: "white", 
+            borderRadius: "10px",
+            flexGrow: 1,
+          }}>
           <CardContent sx={{padding: {xs: 1, sm: 2}}}>
             <Stack direction={"row"}>
               <KeyboardDoubleArrowUpIcon sx={{ fontSize: "2rem" }} />
@@ -28,14 +34,18 @@ const MonthlySummary = () => {
           </CardContent>
         </Card>
       </Grid>
-
       {/* 支出 */}
-      <Grid size={{xs:4}}>
-        <Card sx={{bgcolor: "blue", color: "white", borderRadius: "10px"}}>
+      <Grid size={{xs:4}} display={"flex"} flexDirection={"column"}>
+        <Card sx={{
+          bgcolor: (theme) => theme.palette.expenseColor.main, 
+          color: "white", 
+          borderRadius: "10px",
+          flexGrow: 1,
+        }}>
           <CardContent sx={{padding: {xs: 1, sm: 2}}}>
             <Stack direction={"row"}>
-              <KeyboardDoubleArrowUpIcon sx={{ fontSize: "2rem" }} />
-              <Typography >収入</Typography>
+              <KeyboardDoubleArrowDownIcon sx={{ fontSize: "2rem" }} />
+              <Typography >支出</Typography>
             </Stack>
             <Typography
             textAlign={"right"} 
@@ -49,14 +59,19 @@ const MonthlySummary = () => {
           </CardContent>
         </Card>
       </Grid>
-
       {/* 残高 */}
-      <Grid size={{xs:4}}>
-        <Card sx={{bgcolor: "blue", color: "white", borderRadius: "10px"}}>
+      <Grid size={{xs:4}} display={"flex"} flexDirection={"column"}>
+        <Card sx={{
+          bgcolor: (theme) => theme
+          .palette.balanceColor.main, 
+          color: "white", 
+          borderRadius: "10px",
+          flexGrow: 1,
+        }}>
           <CardContent sx={{padding: {xs: 1, sm: 2}}}>
             <Stack direction={"row"}>
-              <KeyboardDoubleArrowUpIcon sx={{ fontSize: "2rem" }} />
-              <Typography >収入</Typography>
+              <SavingsIcon sx={{ fontSize: "2rem" }} />
+              <Typography >残高</Typography>
             </Stack>
             <Typography
             textAlign={"right"} 
